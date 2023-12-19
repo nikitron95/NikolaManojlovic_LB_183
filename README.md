@@ -48,13 +48,9 @@ Gegenmassnahmen
 * Nutzen der Bedrohungsmodellierung für kritische Authentifizierung, Zugriffskontrolle, Geschäftslogik und Schlüsselabläufe.
 
 
-**Verifizierung**
-
-sddsd.
-
 **Beurteilung der Umsetzung**
+ss
 
-sdsdsd.
 
 
 ## Sicherheitslücken und ihre Ursachen
@@ -128,9 +124,6 @@ Im folgenden Bild sieht man, dass nach der Behebung der Sicherheitslücke man ke
 
 ![Alt text](image-2.png)
 
-**Verifizierung**
-
-sddsd.
 
 **Beurteilung der Umsetzung**
 
@@ -245,9 +238,6 @@ In der Insecure App hat man zwei Rollen, einmal den Administrator und Nutzer. Be
             return Ok();
         }
 
-**Verifizierung**
-
-sddsd.
 
 **Beurteilung der Umsetzung**
 
@@ -291,10 +281,6 @@ Implementierung:
 Die Sicherheitskonzepte sollen bei der Implementation klare Abläufe haben. Wichtig ist eine Vermeidung von hoher Komplexität, dadurch können mehr Fehler entstehen. 
 
 
-**Verifizierung**
-
-sddsd.
-
 **Beurteilung der Umsetzung**
 
 sdsdsd.
@@ -336,9 +322,6 @@ Beim Logging werden hier wichtige Informationen über den Login Vorgang festgeha
 So sieht eine Fehlgeschlagene Anmeldung aus in der Konsole. 
 ![Alt text](image-7.png)
 
-**Verifizierung**
-
-sddsd.
 
 **Beurteilung der Umsetzung**
 
