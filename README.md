@@ -49,8 +49,8 @@ Gegenmassnahmen
 
 
 **Beurteilung der Umsetzung**
-ss
 
+Ich finde ich habe das Artefakt gut umsetzen könne und mein Handlungsziel erreicht. Ich habe mir für vier von zehn der Bedrohungen entschieden und die wichtigen Informationen geliefert. Die Gegenmassnahmen habe ich auch gut aufzeigen können. 
 
 
 ## Sicherheitslücken und ihre Ursachen
@@ -127,7 +127,7 @@ Im folgenden Bild sieht man, dass nach der Behebung der Sicherheitslücke man ke
 
 **Beurteilung der Umsetzung**
 
-sdsdsd.
+Ich finde ich habe das Artefakt gut umgesetzt und mein Handlungsziel erreicht habe. Die SQL Injection wurde ausführlich erklärt was es ist und wie diese im Code aussieht und wie man dieses Risiko beheben kann. 
 
 
 ## Mechanismen für die Authentifizierung und Autorisierung
@@ -241,7 +241,7 @@ In der Insecure App hat man zwei Rollen, einmal den Administrator und Nutzer. Be
 
 **Beurteilung der Umsetzung**
 
-sdsdsd.
+Ich finde das ich das Artefakt gut umgesetzt habe und das Handlungsziel erreicht habe. Die Authentifizierung und Autorisierung wurden gut erklärt was ihre Aufgaben sind und wie man diese Implementiert. 
 
 
 ## Sicherheitsaspekte bei der Systementwicklung
@@ -283,10 +283,10 @@ Die Sicherheitskonzepte sollen bei der Implementation klare Abläufe haben. Wich
 
 **Beurteilung der Umsetzung**
 
-sdsdsd.
+Ich finde das ich das Artefakt gut umgesetzt und das Handlungsziel erreicht habe. Ich habe alle wichtigen Aspekte zur Defensiven Programmierung aufzählen und erklären können was sie sind. 
 
 
-## Auditing und Logging: Schlüsselstrategien für Auswertungen und Alarme
+## Logging
 
 Beim Logging werden hier wichtige Informationen über den Login Vorgang festgehalten. Im Falle eines Fehlversuches erhält man die Nachricht "login failed for user '{request.Username}'" und wenn man sich richtig Anmeldet erhält man die Nachricht "login successful for user '{request.Username}'" in der Konsole. Dies ist nützlich fürs Debuggen oder zur Identifizierung von Sicherheitsproblemen. 
 
@@ -325,7 +325,7 @@ So sieht eine Fehlgeschlagene Anmeldung aus in der Konsole.
 
 **Beurteilung der Umsetzung**
 
-sdsdsd.
+Ich finde das ich das Artefakt gut umgesetzt und das Handlungsziel erreicht habe. Das Logging wurde gut erklärt und wie man es richitg implementiert. 
 
 
 ## Selbsteinsschätzung
