@@ -256,7 +256,39 @@ sdsdsd.
 
 ## Sicherheitsaspekte bei der Systementwicklung
 
-ss
+**Defensive Programmierung**
+
+Defensive Programmierung ist ein Ansatz in der Softwareentwicklung, bei dem man davon ausgeht, dass Probleme während der Ausführung des Codes auftreten können. Ziel ist es, ein robustes und fehlertolerantes System zu erstellen. Dabei werden vorsorglich Maßnahmen in den Code integriert, die auf mögliche Fehler und unerwartete Eingaben reagieren. Hier sind die grundlegenden Aspekte.
+
+Schichtenmodell: 
+Eine Software wird in verschiedenen Schichten aufgebaut. Jede Schicht bietet ihre eigene Sicherheit und bietet Sicherheit in verschiedenen Ebenen. Man kann sich darunter eine Stadt vorstellen mit mehreren Schutzwällen. 
+
+Risikoabschätzung: 
+Die Ressourcen wie Tests, Zeit und Reviews sollten nach Risiko priorisiert werden. Diese sollten basierend auf das Schadenpotential und der Eintrittswahrscheinlichkeit eingestufft werden, um Sicherheitsmassnahmen festzulegen. 
+
+Authentifizierung und Autorisierung:
+Überprüfung der Identität eines Benutzers und Zuweisung von Zugriffsrechten. Die Medianbrüche erschweren einen Angriff. Empfehlenswert ist eine Mehrfaktor-Authentifizierung oder eine Erstauthentifizierung.
+
+Verwendung von APIs und Bibliotheken:
+Eine vertrauenswürdige API oder Bibliothek verwenden, welche keine eigene Experimente sind und welche die getestet wurden. Zur Sicherheit soll man bekannte und geprüfte Verschlüsselungsalgorithmen verwenden. 
+
+Patch-Management:
+Datenbanken oder Server können Sicherheitslücken vorweisen. Um dies zu vermeiden, sollte man eine regelmässige Akttualisierung einführen umd die Sicherheitslücke zu schliessen. 
+
+Sicherheitsbewusstsein:
+Dem Bentuzer sollte erklärt werden warum das Passwort komplex sein muss, warum die Passwörter nicht weitergeleitet werden sollen und was die 2FA bringt. Die Entwickler sollten geschult werden auf wichtige Sicherheitsrisiken. 
+
+Eingabe- und Ausgabevalidierung:
+Die Benutzeriengaben müssen überprüft werden um Angriffe zu vermeiden wie Injections. Die Ausgabedaten werden passend formatiert. 
+
+Session-Management:
+Eine sichere Verwaltung von Benutzersitzungen. 
+
+Errorhandling und Logging: 
+Wenn eine Software einen Fehler erleidet sollte es stabil bleiben und in den vorherigen Zustand zurück gehen. Der Fehler welcher aufgetretten ist protokolliert werden und  analysiert werden. 
+
+Implementierung:
+Die Sicherheitskonzepte sollen bei der Implementation klare Abläufe haben. Wichtig ist eine Vermeidung von hoher Komplexität, dadurch können mehr Fehler entstehen. 
 
 
 **Verifizierung**
