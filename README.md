@@ -204,6 +204,47 @@ Diesen Code Abschnitt fügt man in der Klasse AuthController ein.
             }
         }
 
+**Was ist eine Autorisierung**
+
+Autorisierung ist der Prozess, bei dem entschieden wird, ob ein bereits authentifizierter Benutzer Zugriff auf bestimmte Ressourcen oder die Erlaubnis zur Ausführung bestimmter Aktionen erhält. Die Autorisierung dient dazu, sicherzustellen, dass Benutzer nur die für ihre Rolle oder Zuständigkeit erforderlichen Berechtigungen erhalten, um so das Risiko eines unbefugten Zugriffs oder Missbrauchs von Daten und Funktionen zu minimieren.
+
+**Implementation**
+
+In der Insecure App hat man zwei Rollen, einmal den Administrator und Nutzer. Beide Autoren haben die Möglichkeit Veränderungen in der App vorzunehmen. Hier wird geprüft oder der Autor entweder ein Autor oder Nutzer ist und erhält somit die Erlaubnis einen EIntrag zu verändern. Wenn die IDs des Autoren nicht übereinstimmen erhält er keinen Zugriff die Aktion auszuführen. 
+
+        [HttpPatch("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(403)]
+        [ProducesResponseType(404)]
+        public ActionResult Update(int id, NewsWriteDto request)
+        {
+            if (request == null)
+            {
+                return BadRequest();
+            }
+
+            var news = _context.News.Find(id);
+            if (news == null)
+            {
+                return NotFound(string.Format("News {0} not found", id));
+            }
+
+            if (!_userService.IsAdmin() && _userService.GetUserId() != news.AuthorId)
+            {
+                return Forbid();
+            }
+
+            news.Header = HttpUtility.HtmlEncode(request.Header);
+            news.Detail = HttpUtility.HtmlEncode(request.Detail);
+            news.AuthorId = _userService.GetUserId();
+            news.IsAdminNews = _userService.IsAdmin();
+
+            _context.News.Update(news);
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
 **Verifizierung**
 
 sddsd.
