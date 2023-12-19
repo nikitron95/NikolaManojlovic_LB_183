@@ -2,7 +2,7 @@
 
 ## Einleitung
 
-Dieses Portfolio präsentiert einen umfassenden Einblick in die Entwicklung und Implementierung von sicheren Web-Applikationen. Der Fokus liegt darauf, das Bewusstsein und Wissen über Cybersecurity zu erweitern, basierend auf den Erkenntnissen aus dem Modul 183 Applikationssicherheit implementieren. Ich gehen auf aktuelle, kritische Bedrohungen ein und erläutern anhand von Beispielen, wie Sicherheitslücken, insbesondere solche durch Injection, effektiv erkannt und behoben werden können. Die Bedeutung robuster Authentifizierungs- und Autorisierungsmechanismen. Zudem integriere ich Sicherheitsaspekte in den Software-Lebenszyklus und diskutieren die Vorteile defensiven Programmierens. Abschließend wird die Wichtigkeit effektiver Auditing- und Logging-Verfahren beleuchtet, um die Applikationssicherheit kontinuierlich zu verbessern und zu gewährleisten.
+Dieses Portfolio präsentiert einen umfassenden Einblick in die Entwicklung und Implementierung von sicheren Web-Applikationen. Der Fokus liegt darauf, das Bewusstsein und Wissen über Cybersecurity zu erweitern, basierend auf den Erkenntnissen aus dem Modul 183 Applikationssicherheit implementieren. Ich gehen auf aktuelle, kritische Bedrohungen ein und erläutern anhand von Beispielen, wie Sicherheitslücken, insbesondere solche durch Injection, effektiv erkannt und behoben werden können. Die Bedeutung robuster Authentifizierungs- und Autorisierungsmechanismen. Zudem integriere ich Sicherheitsaspekte in der Software und diskutieren die Vorteile des defensiven Programmierens. Abschließend wird die Wichtigkeit effektiver Auditing- und Logging-Verfahren beleuchtet, um die Applikationssicherheit kontinuierlich zu verbessern und zu gewährleisten.
 
 ## Aktuelle Bedrohungen
 
@@ -302,9 +302,39 @@ sdsdsd.
 
 ## Auditing und Logging: Schlüsselstrategien für Auswertungen und Alarme
 
-xx
+Beim Logging werden hier wichtige Informationen über den Login Vorgang festgehalten. Im Falle eines Fehlversuches erhält man die Nachricht "login failed for user '{request.Username}'" und wenn man sich richtig Anmeldet erhält man die Nachricht "login successful for user '{request.Username}'" in der Konsole. Dies ist nützlich fürs Debuggen oder zur Identifizierung von Sicherheitsproblemen. 
 
 
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public ActionResult<User> Login(LoginDto request)
+        {
+            if (request == null || request.Username.IsNullOrEmpty() || request.Password.IsNullOrEmpty())
+            {
+                return BadRequest();
+            }
+            string username = request.Username;
+            string passwordHash = MD5Helper.ComputeMD5Hash(request.Password);
+
+            User? user = _context.Users
+                .Where(u => u.Username == username)
+                .Where(u => u.Password == passwordHash)
+                .FirstOrDefault();
+
+            if (user == null)
+            {
+                _logger.LogWarning($"login failed for user '{request.Username}'");
+                return Unauthorized("login failed");
+            }
+
+            _logger.LogInformation($"login successful for user '{request.Username}'");
+            return Ok(CreateToken(user));
+        }
+
+So sieht eine Fehlgeschlagene Anmeldung aus in der Konsole. 
+![Alt text](image-7.png)
 
 **Verifizierung**
 
@@ -317,4 +347,4 @@ sdsdsd.
 
 ## Selbsteinsschätzung
 
-ddd
+In meiner Selbsteinschätzung zum Modul Cybersecurity empfand ich große Vorfreude und Interesse, stieß jedoch auf einige Herausforderungen im Verständnis des Stoffs. Die Art der Leistungsbeurteilung war sehr hilfreich, um den Stoff zu wiederholen und besser zu verstehen. Obwohl ich nicht alle Aufgaben absolvierte, glaube ich, dass ich das Wesentliche verstanden habe. Meine Leistung während des Modul war einiger Massen in Ordnung. Es gab Inhalte welche einfach waren und welche wofür ich viel Zeit aufwenden musste um diese zu verstehen. Die meisten Kompetenzen des Moduls habe ich erreicht, insbesondere im Bereich der Sicherheitsaspekte und der defensiven Programmierung
